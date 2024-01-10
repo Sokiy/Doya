@@ -1,6 +1,8 @@
 use crate::define::EventMsg;
 use fltk::button::Button;
 use fltk::{app, prelude::*, window::Window};
+use fltk::enums::FrameType;
+use fltk::frame::Frame;
 
 mod define;
 mod feature;
@@ -21,6 +23,9 @@ fn main() {
 
     // 设置 wind 窗口样式
     layout::set_wind_style(&mut wind);
+
+    let mut frame = Frame::default().with_size(360, 260).center_of(&wind);
+    frame.set_frame(FrameType::EngravedBox);
     wind.end();
     wind.show();
 
